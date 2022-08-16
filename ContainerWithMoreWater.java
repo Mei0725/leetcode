@@ -16,7 +16,36 @@ public class ContainerWithMoreWater {
 		System.out.println("result: " + output);
 	}
 	
+	/**
+	 * In this way, we start with the max width.
+	 * For any container, to get a bigger result, since the width decreases by 1 each time, the shorter line should be replaced
+	 * 
+	 * @param height
+	 * @return
+	 */
     public static int maxArea(int[] height) {
+    	int result = 0;
+    	int start = 0;
+    	int end = height.length - 1;
+    	
+    	while (start < end) {
+    		int temp = (end - start) * Math.min(height[start], height[end]);
+    		if (temp > result) {
+    			result = temp;
+    		}
+    		if (height[start] > height[end]) {
+    			end--;
+    		} else {
+    			start++;
+    		}
+    	}
+    	return result;
+    	/* Time complexity is n^2, so the runtime is very long(300+ms)
+    	 * There is a optimization (otherwise there will be a 'Runtime Error'): 
+    	 * Since width is for max to min, 
+    	 * while the result > maxHeight * width, it is impossible to get a bigger result,
+    	 * then the cycle can be broken
+    	 
     	int result = 0;
     	int width = height.length - 1;
     	if (width == 0) {
@@ -41,7 +70,7 @@ public class ContainerWithMoreWater {
     		System.out.println("width: " + width);
     		System.out.println("result: " + result);
     	}
-    	return result;
+    	return result;*/
     }
 
 }
