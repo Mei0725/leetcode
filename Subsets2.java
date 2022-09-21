@@ -43,6 +43,8 @@ public class Subsets2 {
     		preResult.add(new ArrayList<>());
     	}
     	
+    	// when there are same nums in arrays, for any n same num m, 
+    	// it can be expressed as [], [m], [m, m]... ,the last one is an array contains n m
     	int nextId = 1;
     	while (nextId < nums.length && nums[0] == nums[nextId]) {
     		nextId++;
