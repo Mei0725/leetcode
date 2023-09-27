@@ -6,7 +6,8 @@ import java.util.List;
 public class GrayCode {
 
 	public static void main(String[] args) {
-		int input = 9;
+		int input = 2;
+//		int input = 9;
 		List<Integer> output = null;
 		try {
 			output = grayCode(input);
